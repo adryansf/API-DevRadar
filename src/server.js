@@ -1,17 +1,15 @@
 //Modules
 const express = require("express");
 const routes = require("./routes");
+const cors = require("cors");
 
 const app = express();
 
 //Database
 require("./database");
 
-app.get("/", (req, res) => {
-  return res.json({ ok: true });
-});
-
 //Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
